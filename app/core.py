@@ -11,13 +11,13 @@ class Core:
         self.app.mount("/static", StaticFiles(directory="static"), name="static")
 
     def setup_route(self):
-        @self.rotuer.get("/")
+        @self.router.get("/")
         def root(request: Request):
             client_ip = request.client.host
             ip_parts = client_ip.split(".")
 
             if len(ip_parts) == 4:
-                last_octet = ip_parts[-1]
+                last_octet = int(ip_parts[-1])
             else:
                 last_octet = 0
 
@@ -37,3 +37,7 @@ class Core:
 
     def run(self):
         self.setup_route()
+        self.app.include_router(self.router)
+
+        import uvicorn
+        uvicorn.run(self.app, host="0.0.0.0", port=80)
