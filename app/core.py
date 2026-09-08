@@ -27,9 +27,9 @@ class Core:
                 current_user = "GUEST"
 
             self.templates.TemplateResponse(
+                request,
                 "index.html",
                 {
-                    "request": request,
                     "title": "SEOUL-DEV-MAIN-01",
                     "user": current_user
                 }
