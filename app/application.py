@@ -12,6 +12,7 @@ class ServerApplication(FastAPI):
 
         self._init_database()
         self._init_routers()
+        self._init_middleware()
 
     def _init_database(self):
         Base.metadata.create_all(bind=engine)
