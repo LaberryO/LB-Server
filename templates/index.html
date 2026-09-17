@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ page_css }}">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <div class="container">
-        Welcome, {{ user }}
+        <h1>Dashboard</h1>
+        <p>Welcome, {{ user }}</p>
+        <p>TEST TEXT</p>
     </div>
-    <script src="{{ page_js }}"></script>
-</body>
-</html>
+{% endblock %}

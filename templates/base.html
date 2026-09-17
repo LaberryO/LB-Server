@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ title }} {% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="{{ page_css }}">
+
+    <!-- If need extra header in page -->
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- TODO: Navbar -->
+    <nav class="navbar"></nav>
+
+    <!-- content -->
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- TODO: Footer -->
+    <footer></footer>
+
+    <!-- Bootstrap -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="{{ page_js }}"></script>
+
+    {% block extra_script %}{% endblock %}
+</body>
+</html>

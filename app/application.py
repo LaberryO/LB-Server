@@ -25,6 +25,7 @@ class ServerApplication(FastAPI):
 
     def _init_static(self):
         self.mount("/static", StaticFiles(directory="static"), name="static")
+        self.mount("/node_modules", StaticFiles(directory="node_modules"), name="node_modules")
 
     def _init_routers(self):
         self.include_router(app_router)
