@@ -29,7 +29,8 @@ class ServerApplication(FastAPI):
         async def ip_whitelist_for_docs(request: Request, call_next):
             if request.url.path in ["/docs", "/openapi.json", "/redoc"]:
                 client_ip = request.client.host
-                if client_ip != settings.dev_ip and client_ip != "127.0.0.1":
+                # TODO: need Authencation by Account. Not IP.
+                if settings.debug_mode == True and client_ip != settings.dev_ip and client_ip != "127.0.0.1":
                     return JSONResponse(
                         status_code=403,
                         content={"detail": "Forbidden: Not-allowed IP"}
