@@ -1,19 +1,17 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from starlette.responses import JSONResponse
 
 from app.database import Base, engine
 from app.user.controller import router as user_router
+from .controller import router as app_router
 
 from .settings import settings
-
-templates = Jinja2Templates(directory="templates")
 
 class ServerApplication(FastAPI):
     def __init__(self, title="SJJEONG-DEV-SERVER", version="1.0.0", **kwargs):
         super().__init__(title=title, version=version, **kwargs)
-        self.title = title
+        self._templates = Jinja2Templates(directory="templates")
 
         self._init_database()
         self._init_routers()
@@ -23,18 +21,8 @@ class ServerApplication(FastAPI):
         Base.metadata.create_all(bind=engine)
 
     def _init_routers(self):
+        self.include_router(app_router)
         self.include_router(user_router)
-
-        @self.get("/", response_class=HTMLResponse)
-        def read_root(request: Request):
-            return templates.TemplateResponse(
-                request=request,
-                name="index.html",
-                context={
-                    "title": self.title,
-                    "user": "TEST"
-                }
-            )
 
     def _init_middleware(self):
         @self.middleware("http")
@@ -47,3 +35,7 @@ class ServerApplication(FastAPI):
                         content={"detail": "Forbidden: Not-allowed IP"}
                     )
             return await call_next(request)
+
+    @property
+    def templates(self) -> Jinja2Templates:
+        return self._templates
