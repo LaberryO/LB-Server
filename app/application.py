@@ -1,24 +1,30 @@
 from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 from starlette.responses import JSONResponse
 
 from app.database import Base, engine
 from app.user.controller import router as user_router
-from .controller import router as app_router
+from app.template import Templates
 
+from .controller import router as app_router
 from .settings import settings
 
 class ServerApplication(FastAPI):
     def __init__(self, title="SJJEONG-DEV-SERVER", version="1.0.0", **kwargs):
         super().__init__(title=title, version=version, **kwargs)
-        self._templates = Jinja2Templates(directory="templates")
+
+        self._templates = Templates(directory="templates")
 
         self._init_database()
+        self._init_static()
         self._init_routers()
         self._init_middleware()
 
     def _init_database(self):
         Base.metadata.create_all(bind=engine)
+
+    def _init_static(self):
+        self.mount("/static", StaticFiles(directory="static"), name="static")
 
     def _init_routers(self):
         self.include_router(app_router)
@@ -38,5 +44,5 @@ class ServerApplication(FastAPI):
             return await call_next(request)
 
     @property
-    def templates(self) -> Jinja2Templates:
+    def templates(self) -> Templates:
         return self._templates
