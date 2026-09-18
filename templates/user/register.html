@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <!-- title text -->
+        <div class="row">
+            <h2 class="text-primary">
+                User Register
+            </h2>
+        </div>
+        <!-- input form -->
+        <div class="row">
+            <div class="col">
+                <!-- id -->
+                <div class="row">
+                    <div class="col-4">ID</div>
+                    <div class="col-6">
+                        <input type="text">
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="row">
+                    <div class="col-4">Password</div>
+                    <div class="col-6">
+                        <!-- TODO: need setting name and id -->
+                        <input type="password" name="" id="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
