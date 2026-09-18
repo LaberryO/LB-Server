@@ -16,6 +16,8 @@ class UserCreateRequest(BaseModel):
     email: str
     password: str
 
+    model_config = ConfigDict(extra="ignore")
+
 class UserResponse(BaseModel):
     id: int
     name: str
