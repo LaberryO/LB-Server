@@ -360,3 +360,7 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# TypeScript Compile files
+static/js/**
+!static/js/blank.js
