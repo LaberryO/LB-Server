@@ -363,4 +363,3 @@ vite.config.ts.timestamp-*
 
 # TypeScript Compile files
 static/js/**
-!static/js/blank.js
