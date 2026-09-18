@@ -15,7 +15,7 @@ router = APIRouter(prefix="/user", tags=["Users"])
 def create_page(request: Request, templates: Templates = Depends(get_templates)) -> HTMLResponse:
     return templates.TemplateResponse(
         request=request,
-        name="register.html"
+        name="user/register.html"
     )
 
 @router.post("/create", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
