@@ -2,11 +2,9 @@ from fastapi import APIRouter, Depends, Request
 from fastapi.responses import HTMLResponse
 
 from app.template import Templates
+from app.dependencies.templates import get_templates
 
 router = APIRouter()
-
-def get_templates(request: Request) -> Templates:
-    return request.app.templates
 
 @router.get("/", response_class=HTMLResponse)
 def read_root(
