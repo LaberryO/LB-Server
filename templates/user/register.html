@@ -1,39 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
-        <!-- title text -->
-        <div class="row">
-            <h2 class="text-primary">
-                User Register
-            </h2>
-        </div>
-        <!-- input form -->
-        <div class="row">
-            <div class="col">
-                <!-- id -->
-                <div class="row">
-                    <div class="col-4">ID</div>
-                    <div class="col-6">
-                        <input type="text">
-                    </div>
-                </div>
-                <!-- password -->
-                <div class="row">
-                    <div class="col-4">Password</div>
-                    <div class="col-6">
-                        <!-- TODO: need setting name and id -->
-                        <input type="password" name="" id="">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button class="btn-primary">
-                            Submit
-                        </button>
-                    </div>
-                </div>
+<div class="container">
+    <form action="" class="border border-1 border-black rounded-1 w-75 p-5 m-auto">
+        <legend>Register User</legend>
+        <div class="mb-3">
+            <label for="inputName" class="form-label">Name</label>
+            <input type="text" id="inputName" class="form-control" placeholder="Hong Gil-Dong">
+            <div id="helpName" class="form-text">
+                We recommend using your real name.
             </div>
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email Address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="example@email.com">
+            <div id="helpEmail" class="form-text">
+                The email address is used as an ID to identify the individual.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" id="inputPassword" class="form-control">
+            <div id="helpPasword" class="form-text">
+                The password must be between 8 and 30 characters long.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="inputRePassword" class="form-label">Re-Enter Password</label>
+            <input type="password" id="inputRePassword" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 {% endblock %}
