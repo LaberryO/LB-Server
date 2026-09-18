@@ -1,5 +1,7 @@
 from fastapi import HTTPException
 
+from app.security import hash_password
+
 from .repositories import UserRepository
 from .models import User, UserCreateRequest, UserResponse
 
@@ -12,7 +14,7 @@ class UserService:
             name = request.name,
             email = request.email,
             # TODO: Need hash
-            password = request.password
+            password = hash_password(request.password)
         )
 
         saved_entity = self.repo.save(new_entity)
