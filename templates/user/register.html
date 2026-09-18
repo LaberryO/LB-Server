@@ -2,32 +2,35 @@
 
 {% block content %}
 <div class="container">
-    <form action="" class="border border-1 border-black rounded-1 w-75 p-5 m-auto">
+    <form method="POST" class="border border-1 border-black rounded-1 w-75 p-5 m-auto">
         <legend>Register User</legend>
         <div class="mb-3">
             <label for="inputName" class="form-label">Name</label>
-            <input type="text" id="inputName" class="form-control" placeholder="Hong Gil-Dong">
+            <input type="text" id="inputName" name="name" class="form-control" placeholder="Hong Gil-Dong">
             <div id="helpName" class="form-text">
                 We recommend using your real name.
             </div>
         </div>
         <div class="mb-3">
             <label for="inputEmail" class="form-label">Email Address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="example@email.com">
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="example@email.com">
             <div id="helpEmail" class="form-text">
                 The email address is used as an ID to identify the individual.
             </div>
         </div>
         <div class="mb-3">
             <label for="inputPassword" class="form-label">Password</label>
-            <input type="password" id="inputPassword" class="form-control">
+            <input type="password" id="inputPassword" name="password" class="form-control" minlength="8" maxlength="30">
             <div id="helpPasword" class="form-text">
                 The password must be between 8 and 30 characters long.
             </div>
         </div>
         <div class="mb-3">
             <label for="inputRePassword" class="form-label">Re-Enter Password</label>
-            <input type="password" id="inputRePassword" class="form-control">
+            <input type="password" id="inputRePassword" name="rePassword" class="form-control" minlength="8" maxlength="30" disabled>
+            <div class="invalid-feedback">
+                The passwords do not match.
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
