@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" class="border border-1 border-black rounded-1 w-75 p-5 m-auto">
+            <legend>Log In</legend>
+            <div class="mb-3">
+                <label for="inputEmail">ID(Email)</label>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="example@email.com">
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

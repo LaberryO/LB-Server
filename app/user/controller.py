@@ -27,3 +27,10 @@ def create(request: UserCreateRequest, service: UserService = Depends(get_user_s
 # def get_by_id(id: int, service: UserService = Depends(get_user_service)) -> UserResponse:
 #     # TODO: need authentication
 #     return service.get_user_by_id(id)
+
+@router.get("/login", response_class=HTMLResponse)
+def login(request: Request, templates: Templates = Depends(get_templates)) -> HTMLResponse:
+    return templates.TemplateResponse(
+        request=request,
+        name="user/login.html"
+    )
