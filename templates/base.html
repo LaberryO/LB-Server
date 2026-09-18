@@ -15,16 +15,16 @@
     {% block extra_head %}{% endblock %}
 </head>
 <body>
-    <!-- TODO: Navbar -->
-    <nav class="navbar"></nav>
+    <!-- Navbar -->
+    {% include "fragments/navbar.html" %}
 
     <!-- content -->
     <main class="content">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- TODO: Footer -->
-    <footer></footer>
+    <!-- Footer -->
+    {% include "fragments/footer.html" %}
 
     <!-- Bootstrap -->
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
