@@ -29,7 +29,6 @@ class UserService:
         response = self.repo.find_by_id(id)
 
         if not response:
-            # TODO: Will Make Multiple Language
             raise HTTPException(status_code=404, detail="Not Found User")
 
         return UserResponse.model_validate(response)
