@@ -26,10 +26,6 @@ class Templates(Jinja2Templates):
         js_rel = f"js/{stem}.js"
         context["page_js"] = f"/static/{js_rel}" if (self.static_dir / js_rel).exists() else "/static/js/blank.js"
 
-        # if ts file exists, use its path. otherwise, use blank.ts
-        ts_rel = f"ts/{stem}.ts"
-        context["page_ts"] = f"/static/{ts_rel}" if (self.static_dir / ts_rel).exists() else "/static/ts/blank.ts"
-
         return super().TemplateResponse(
             request=request,
             name=name,

@@ -2,5 +2,9 @@
   "dependencies": {
     "bootstrap": "^5.3.8",
     "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w"
   }
 }
