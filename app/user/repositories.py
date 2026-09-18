@@ -20,3 +20,7 @@ class UserRepository:
         
     def find_by_id(self, id: int) -> Optional[User]:
         return self.db.get(User, id)
+
+    def find_by_email(self, email: str) -> Optional[User]:
+        stmt = select(User).where(User.email == email)
+        return self.db.scalars(stmt).first()

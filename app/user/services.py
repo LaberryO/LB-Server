@@ -10,13 +10,17 @@ class UserService:
         self.repo = repo
 
     def create(self, request: UserCreateRequest) -> UserResponse:
+        if self.repo.find_by_email(request.email):
+            raise HTTPException(
+                status_code=409,
+                detail="Already registered email address."
+            )
+
         new_entity = User(
             name = request.name,
             email = request.email,
-            # TODO: Need hash
             password = hash_password(request.password)
         )
-
         saved_entity = self.repo.save(new_entity)
 
         return UserResponse.model_validate(saved_entity)
