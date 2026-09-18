@@ -10,7 +10,7 @@ from .controller import router as app_router
 from .settings import settings
 
 class ServerApplication(FastAPI):
-    def __init__(self, title="SJJEONG-DEV-SERVER", version="1.0.0", **kwargs):
+    def __init__(self, title="LB-Server", version="1.0.0", **kwargs):
         super().__init__(title=title, version=version, **kwargs)
 
         self._templates = Templates(directory="templates")
