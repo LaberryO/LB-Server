@@ -68,4 +68,4 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Server Error");
         }
     });
-})
+});
