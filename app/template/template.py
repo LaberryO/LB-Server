@@ -22,6 +22,8 @@ class Templates(Jinja2Templates):
         css_rel = f"css/{stem}.css"
         context["page_css"] = f"/static/{css_rel}" if (self.static_dir / css_rel).exists() else "/static/css/blank.css"
 
+        context["common_js"] = f"/static/js/common.js"
+
         # if js file exists, use its path. otherwise, use blank.js
         js_rel = f"js/{stem}.js"
         context["page_js"] = f"/static/{js_rel}" if (self.static_dir / js_rel).exists() else "/static/js/blank.js"

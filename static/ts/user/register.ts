@@ -1,16 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form") as HTMLFormElement;
 
-    function applyAutoStyle(input: HTMLInputElement) {
-        if (input.checkValidity()) {
-            input.classList.add("is-valid");
-            input.classList.remove("is-invalid");
-        } else {
-            input.classList.add("is-invalid");
-            input.classList.remove("is-valid");
-        }
-    }
-
     function syncPasswordValidity() {
         const password = document.getElementById("inputPassword") as HTMLInputElement;
         const rePassword = document.getElementById("inputRePassword") as HTMLInputElement;
