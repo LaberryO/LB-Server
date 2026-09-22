@@ -6,9 +6,9 @@
         <legend>Register User</legend>
         <div class="mb-3">
             <label for="inputName" class="form-label">Name</label>
-            <input type="text" id="inputName" name="name" class="form-control" placeholder="Hong Gil-Dong" required>
+            <input type="text" id="inputName" name="name" class="form-control" placeholder="Hong Gil-Dong" minlength="2" maxlength="50" required>
             <div class="invalid-feedback">
-                Please enter your name (at least 2 characters.)
+                Name must be between 2 and 50 characters.
             </div>
             <div id="helpName" class="form-text">
                 We recommend using your real name.
@@ -16,7 +16,7 @@
         </div>
         <div class="mb-3">
             <label for="inputEmail" class="form-label">Email Address</label>
-            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="example@email.com" required>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="example@email.com" minlegnth="0" maxlength="100" required>
             <div class="invalid-feedback">
                 Please enter a valid email address.
             </div>
