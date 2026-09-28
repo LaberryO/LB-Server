@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" class="border border-1 border-black rounded-1 w-75 p-5 m-auto">
+            <legend>Restful API Console(RCS)</legend>
+            <div class="mb-3">
+                <label for="inputPhone">Phone Number</label>
+                <input type="text" name="phone" id="inputPhone" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="inputTitle">Title</label>
+                <input type="text" name="title" id="inputTitle" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="inputContent">Content</label>
+                <input type="text" name="content" id="inputContent" class="form-control">
+            </div>
+            <input type="hidden" name="token" id="token" value="{{ token }}">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

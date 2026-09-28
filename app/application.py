@@ -4,6 +4,7 @@ from starlette.responses import JSONResponse
 
 from app.database import Base, engine
 from app.user.controller import router as user_router
+from app.rcs.controller import router as rcs_router
 from app.template import Templates
 
 from .controller import router as app_router
@@ -30,6 +31,7 @@ class ServerApplication(FastAPI):
     def _init_routers(self):
         self.include_router(app_router)
         self.include_router(user_router)
+        self.include_router(rcs_router)
 
     def _init_middleware(self):
         @self.middleware("http")

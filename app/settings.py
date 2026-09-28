@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     db_url: str
     debug_mode: bool
     dev_ip: str
+    api_key: str
+    api_password: str
+    api_url: str
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
